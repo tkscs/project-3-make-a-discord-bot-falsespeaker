@@ -27,3 +27,13 @@ This function will be called every time the `should_i_respond` function returns 
 def respond(user_message, user_name):
   return f"""you said my name!!
   {user_message.replace("robot", user_name)}"""
+
+def should_i_respond(user_message, user_name):
+  if "What is 7 + 5" in user_message:
+    return True
+  else:
+    return False
+  
+def respond(user_message, user_name):
+  return f"""Its 12
+  {user_message.replace("What is 7 + 5", user_name)}"""
