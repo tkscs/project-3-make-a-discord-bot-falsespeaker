@@ -25,4 +25,12 @@ async def on_message(message):
         response = my_bot.respond(message.content, user_name)
         await message.channel.send(response)
 
+@client.event
+async def on_message(message):
+  if message.channel.name == my_bot_channel:
+    if message.author != client.user:
+      user_name = message.author.display_name
+      if my_bot.should_i_respond(message.content, user_name):
+        response = my_bot.respond(message.content, user_name)
+        await message.channel.send(response)
 client.run(my_discord_token)
